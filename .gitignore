@@ -1,0 +1,6 @@
+.vscode
+notebooks
+*.ipynb
+docs/build
+__pycache__
+.ipynb*

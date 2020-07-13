@@ -1,0 +1,5 @@
+numba
+scipy
+numpy
+Sphinx==2.4.1
+sphinx-rtd-theme==0.4.3
