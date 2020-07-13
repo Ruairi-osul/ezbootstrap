@@ -59,7 +59,7 @@ Permutation Replicates
 
 
 Function arguments
-======================
+~~~~~~~~~~~~~~~~~~~~~
 
 Function arguments can be specified in the definition of the lambda function.
 

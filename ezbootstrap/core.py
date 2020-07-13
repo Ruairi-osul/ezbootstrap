@@ -54,7 +54,7 @@ def bs_1sample(x, func, size=5000):
 
     Args:
         x (arraylike): The sample from which replicates will be drawn
-        func: The function that returns the statistic to be calculated on x. Must take exactly one argument.
+        func: The function that returns the statistic to be calculated on x.
         size (int): The number of bootstrap replicates to generate
     Returns:
         A numpy array of bootstrap replicates
@@ -75,7 +75,7 @@ def bs_2sample(x, y, func, size=5000):
     Args:
         x (arraylike): The first sample from which replicates will be drawn
         y (arraylike): The second sample from which replicates will be drawn
-        func: The function that returns the statistic to be calculated on x and y. Must take exactly two arguments.
+        func: The function that returns the statistic to be calculated on x and y. 
         size (int): The number of bootstrap replicates to generate
     Returns:
         A numpy array of bootstrap replicates
@@ -96,7 +96,7 @@ def bs_pairs(x, y, func, size=5000):
     Args:
         x (arraylike): The first variable from which replicates will be drawn
         y (arraylike): The second variable from which replicates will be drawn
-        func: The function that returns the statistic to be calculated on x and y. Must take exactly two arguments.
+        func: The function that returns the statistic to be calculated on x and y.
         size (int): The number of bootstrap replicates to generate
     Returns:
         A numpy array of bootstrap replicates
@@ -117,7 +117,7 @@ def permutation_2sample(x, y, func, size=5000):
     Args:
         x (arraylike): The first sample from which replicates will be drawn
         y (arraylike): The second sample from which replicates will be drawn
-        func: The function that returns the statistic to be calculated on x and y. Must take exactly two arguments.
+        func: The function that returns the statistic to be calculated on x and y.
         size (int): The number of permutation replicates to generate
     Returns:
         A numpy array of bootstrap replicates
