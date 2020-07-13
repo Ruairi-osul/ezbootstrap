@@ -32,12 +32,12 @@ Bootstrap Pairs Replicates
 
     x = scipy.stats.norm(loc=100, scale=20).rvs(100)
     y = scipy.stats.norm(loc=50, scale=10).rvs(100)
-    observed = scipy.stats.pearsonr(s)
+    observed = scipy.stats.pearsonr(x, y)[0]
 
     reps = bs_pairs(
-        x=x,
-        y=y,
-        func=lambda x, y: scipy.stats.pearsonr(x, y)
+            x=x,
+            y=y,
+            func=lambda x, y: scipy.stats.pearsonr(x, y)[0]
     )
 
 
