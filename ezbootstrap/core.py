@@ -3,7 +3,6 @@ import warnings
 import numpy as np
 from numba import TypingError
 from typing import Callable, overload, Any
-import nptyping
 
 
 @overload
