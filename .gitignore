@@ -4,3 +4,4 @@ notebooks
 docs/build
 __pycache__
 .ipynb*
+*.egg*
