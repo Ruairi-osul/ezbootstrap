@@ -24,21 +24,18 @@ One Sample Bootstrap Replicates
 Bootstrap Pairs Replicates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Confidence intervals for a regression parameter.
+
 ::
 
     from ezbootstrap import bs_pairs
     import scipy.stats
 
-
-    x = scipy.stats.norm(loc=100, scale=20).rvs(100)
-    y = scipy.stats.norm(loc=50, scale=10).rvs(100)
-    observed = scipy.stats.pearsonr(x, y)[0]
-
-    reps = bs_pairs(
-            x=x,
-            y=y,
-            func=lambda x, y: scipy.stats.pearsonr(x, y)[0]
-    )
+    population_sddlope = 3
+    x = scipy.stats.norm(loc=40, scale=5).rvs(100)
+    y = (x + scipy.stats.norm(loc=1, scale=2)) * expected
+    reps = ez.bs_pairs(x, y, size=1000, func=lambda x, y: np.polyfit(x, y, deg=1)[1])
+    slope_hat_confint = np.percentile(reps, [0.025, 0.975])
 
 
 Permutation Replicates

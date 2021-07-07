@@ -6,9 +6,10 @@ ezbootstrap is a python package for bootstrap statistics.
    :maxdepth: 2
    :caption: Contents:
 
-   inspiration
    quickstart
+   numba_troubleshooting
    api   
+   inspiration
 
 
 
