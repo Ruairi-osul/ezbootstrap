@@ -7,7 +7,7 @@ ezbootstrap is a python package for bootstrap statistics.
    :caption: Contents:
 
    quickstart
-   numba_troubleshooting
+   numba
    api   
    inspiration
 
