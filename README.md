@@ -64,7 +64,7 @@ reps = bs_2sample(
     func=lambda x, y: jaccard_score(x, y),
     size=5000
 )
-p = np.mean(reps) >= observed)
+p = np.mean(reps >= observed)
 ```
 
 
