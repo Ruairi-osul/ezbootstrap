@@ -155,7 +155,7 @@ def bs_pairs(
         reps = numba.njit()(_bs_pairs_draw_apply)(x, y, jfunc, size)
     except TypingError:
         warnings.warn("Numba compilation failed. Reverting to pure python")
-        reps = _bs_draw_apply_2sample(x, y, func, size=size)
+        reps = _bs_pairs_draw_apply(x, y, func, size=size)
     return reps
 
 
