@@ -58,6 +58,19 @@ def _permutation_draw_apply_2sample(
     return reps
 
 
+def _permute_draw_apply_independent(
+    x: np.ndarray, y: np.ndarray, f: Callable[[np.ndarray, np.ndarray], Any], size: int
+) -> np.ndarray:
+    reps = np.empty(size)
+    idx = len(x)
+    con = np.concatenate((x, y))
+    for i in range(size):
+        xs = np.random.permutation(x)
+        ys = np.random.permutation(y)
+        reps[i] = f(xs, ys)
+    return reps
+
+
 def _bs_pairs_draw_apply(
     x: np.ndarray, y: np.ndarray, f: Callable[[np.ndarray, np.ndarray], Any], size: int
 ) -> np.ndarray:
@@ -169,4 +182,30 @@ def permutation_2sample(
     except TypingError:
         warnings.warn("Numba compilation failed. Reverting to pure python")
         reps = _permutation_draw_apply_2sample(x, y, func, size)
+    return reps
+
+
+def permutation_2sample_independent(
+    x: np.ndarray,
+    y: np.ndarray,
+    func: Callable[[np.ndarray, np.ndarray], Any],
+    size: int = 5000,
+) -> np.ndarray:
+    """
+    Generate permutation replicates from two samples by permuting them independently.
+
+    Args:
+        x (arraylike): The first sample from which replicates will be drawn
+        y (arraylike): The second sample from which replicates will be drawn
+        func (callable[[np.ndarray, np.ndarray], float]): The function that returns the statistic to be calculated on x and y.
+        size (int): The number of permutation replicates to generate
+    Returns:
+        A numpy array of bootstrap replicates
+    """
+    try:
+        jfunc = _jitted_func_factory(func)
+        reps = numba.njit()(_permute_draw_apply_independent)(x, y, jfunc, size)
+    except TypingError:
+        warnings.warn("Numba compilation failed. Reverting to pure python")
+        reps = _permute_draw_apply_independent(x, y, func, size)
     return reps
